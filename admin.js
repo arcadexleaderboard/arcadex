@@ -20,7 +20,11 @@ async function refreshStatus() {
     }
     
     try {
-        const response = await fetch(`${API_BASE}/admin/status?key=${key}`);
+        const response = await fetch(`${API_BASE}/admin/status`, {
+            headers: {
+                'X-Admin-Key': key  // Add this
+            }
+        });
         const data = await response.json();
         
         if (data.success) {
