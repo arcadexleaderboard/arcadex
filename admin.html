@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-8 text-center">🎮 Leaderboard Admin Panel</h1>
+        
+        <!-- Admin Key Input -->
+        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+            <label class="block text-sm font-medium mb-2">Admin Key</label>
+            <input type="password" id="adminKey" class="w-full bg-gray-700 border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter admin key">
+        </div>
+        
+        <!-- Status Display -->
+        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Status</h2>
+            <div id="statusDisplay" class="space-y-2">
+                <p class="text-gray-400">Loading...</p>
+            </div>
+            <button onclick="refreshStatus()" class="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+                Refresh Status
+            </button>
+        </div>
+        
+        <!-- Start Event -->
+        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Start New Event</h2>
+            <div class="flex gap-4">
+                <input type="number" id="eventDays" class="flex-1 bg-gray-700 border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="Duration (days)" min="1">
+                <button onclick="startEvent()" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded font-semibold">
+                    Start Event
+                </button>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Actions</h2>
+            <div class="flex flex-wrap gap-4">
+                <button onclick="updateWagers()" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded">
+                    Update Wagers
+                </button>
+                <button onclick="resetLeaderboard()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded">
+                    Reset Leaderboard
+                </button>
+            </div>
+        </div>
+        
+        <!-- Response Display -->
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">Response</h2>
+            <pre id="responseDisplay" class="bg-gray-900 p-4 rounded text-sm overflow-auto max-h-96">No response yet</pre>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>
