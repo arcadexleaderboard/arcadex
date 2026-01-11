@@ -136,7 +136,7 @@ function getRankSuffix(rank) {
 }
 
 // ==================== COUNTER ANIMATION ====================
-function animateCounter(element, target, duration = 2000, prefix = '', suffix = '') {
+function animateCounter(element, target, duration = 2000, prefix = '', suffix = '', isCurrency = false) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
@@ -147,7 +147,15 @@ function animateCounter(element, target, duration = 2000, prefix = '', suffix = 
             current = target;
             clearInterval(timer);
         }
-        element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        
+        // Format based on type
+        if (isCurrency) {
+            // For currency, show 2 decimal places
+            element.textContent = prefix + current.toFixed(2);
+        } else {
+            // For counts (like player count), use integers
+            element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        }
     }, 16);
 }
 
@@ -269,17 +277,24 @@ async function init() {
             throw new Error('Invalid data format received from API');
         }
         
-        // Animate counters
+        // For Total Wagered (currency)
         animateCounter(
             document.getElementById('totalWagered'),
             leaderboardData.totalWagered,
             2000,
-            '$'
+            '$',
+            '',
+            true
         );
+
+        // For Total Players (count - no decimals needed)
         animateCounter(
             document.getElementById('totalPlayers'),
             leaderboardData.totalPlayers,
-            2000
+            2000,
+            '',
+            '',
+            false 
         );
         
         // Render leaderboard
