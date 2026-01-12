@@ -1,6 +1,6 @@
 // ==================== CONFIGURATION ====================
 // CHANGE THIS to your Vercel backend URL after deployment
-const API_BASE = 'https://arcadex-leaderboard-api.vercel.app'; // e.g., https://wager-backend.vercel.app
+const API_BASE = 'https://arcadex-leaderboard-backend.vercel.app'; // e.g., https://wager-backend.vercel.app
 
 // ==================== HELPER FUNCTIONS ====================
 function getAdminKey() {

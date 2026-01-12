@@ -1,7 +1,7 @@
 // ==================== STATE & CONFIG ====================
 // ==================== CONFIGURATION ====================
 // CHANGE THIS to your Vercel backend URL after deployment
-const API_BASE = 'https://arcadex-leaderboard-api.vercel.app'; // e.g., https://wager-backend.vercel.app
+const API_BASE = 'https://arcadex-leaderboard-backend.vercel.app'; // e.g., https://wager-backend.vercel.app
 
 // Change MOCK_MODE to false when backend is ready
 const MOCK_MODE = false; // Set to false when connecting to real API
